@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  const VIDEO_SOURCE = 'video/Stora%20setup.mp4';
+  const VIDEO_SOURCE = 'media/Stora%20setup.mp4';
 
   function initVideo() {
     const frame = document.querySelector('[data-video-frame]');

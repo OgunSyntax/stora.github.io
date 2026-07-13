@@ -57,8 +57,42 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+   function initNavToggle() {
+    const toggle = document.querySelector('[data-nav-toggle]');
+    const links = document.querySelector('[data-nav-links]');
+    if (!toggle || !links) return;
+
+    const closeMenu = () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // close on link tap
+    links.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // close on outside click
+    document.addEventListener('click', (e) => {
+      if (!links.classList.contains('is-open')) return;
+      if (links.contains(e.target) || toggle.contains(e.target)) return;
+      closeMenu();
+    });
+
+    // close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initVideo();
     initNavShadow();
+    initNavToggle();
   });
 })();

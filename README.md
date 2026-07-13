@@ -53,5 +53,5 @@ This is a static site — any of these work with zero configuration:
 - **Vercel**: `vercel` CLI from inside this folder, or import the repo and leave the build command empty (no build step needed — just point it at this folder as the output directory).
 - **GitHub Pages**: push this folder to a repo, enable Pages in repo settings, point it at the branch/folder containing `index.html`.
 
-Once deployed, this page can point at `https://stora.qzz` (already
+Once deployed, this page can point at `https://stora.qzz.io` (already
 wired into the nav, hero, and footer buttons) as the running app.
